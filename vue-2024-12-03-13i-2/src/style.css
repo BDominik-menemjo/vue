@@ -1,0 +1,17 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+body{
+  padding: 50px;
+  background-color: #efefef;
+}
+h1{
+  padding-bottom: 30px;
+}
+h2{
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 20px;
+  text-align: center;
+}
