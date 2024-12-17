@@ -1,6 +1,8 @@
 <script setup>
     import {prods} from '../data/productsData.js';
-    import { ref, computed, defineProps, defineEmits } from 'vue';
+    import { ref, computed, defineProps, defineEmits, watchEffect } from 'vue';
+    import { state } from '../state/state.js';
+    import Product from '../classes/Product.js';
     
     const emit = defineEmits(["nofpEvent"]);
 
@@ -8,20 +10,28 @@
         numberOfProducts:Number
     })
 
-    const products=ref(prods);
     const search=ref("");
+    const products=ref(prods);
+    const addedProduct=ref();
 
     const filteredProducts= computed(()=>{
         var tmp = products.value.filter(product=>
-            product.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())||
-            product.desc.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())||
-            product.price == search.value);
-
+        product.name.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())||
+        product.desc.toLocaleLowerCase().includes(search.value.toLocaleLowerCase())||
+        product.price == search.value);
         props.numberOfProducts = tmp.length; //ez nélkül is meg lehet csinálni
         emit("nofpEvent", tmp.length);
         return tmp;
     });
 
+    const addToCart = (p) =>{
+        var prod = new Product(p.name, p.price, 1)
+        addedProduct.value={...prod};
+    }
+
+    watchEffect(()=>{
+        state.product=addedProduct.value;
+    });
 </script>
 <template>
     <section>
@@ -37,7 +47,7 @@
                     <p class="price">$ {{product.price}}</p>
                 </div>
                 <div>
-                    <button type="button" class="btn cartButton">Add to cart</button>
+                    <button type="button" class="btn cartButton" @click="addToCart(product)">Add to cart</button>
                 </div>
             </div>
         </div>
