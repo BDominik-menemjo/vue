@@ -10,8 +10,15 @@ watchEffect(() => {
     actualEvents.value = state.events;
   }
 });
+
 const toggleModal = () => {
   show.value = !show.value;
+}
+
+const deleteEvent =(dayindex, eventindex)=>{
+  if(actualEvents.value[dayindex]){
+    actualEvents.value[dayindex].splice(eventindex, 1);
+  }
 }
 </script>
 
@@ -37,10 +44,11 @@ const toggleModal = () => {
         </thead>
         <tbody>
           <tr>
-            <td v-for="events in actualEvents">
+            <td v-for="(events, dayindex) in actualEvents">
               <div class="event" v-for="event in events" :style="{'background-color':event.getColor()}">
                 <h3>{{event.getName()}}</h3>
                 <p>{{ event.getTimeFrom() }} - {{ event.getTimeTo() }}</p>
+                <p><i class="bi bi-trash-fill" @click="deleteEvent(dayindex,evenindex)"></i></p>
               </div>
             </td>
           </tr>
@@ -54,6 +62,7 @@ const toggleModal = () => {
 </template>
 
 <style scoped>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 h1,
 footer {
   text-align: center;
