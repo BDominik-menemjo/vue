@@ -1,0 +1,58 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+body{
+  padding: 30px;
+}
+h1, h2, footer{
+  text-align: center;
+}
+h2{
+  padding: 20px 0px;
+  color:aqua;
+}
+footer{
+  border-top: 1px solid #ccc;
+  margin-top: 70px;
+}
+label,
+input {
+    display: block;
+}
+
+input {
+    padding: 7px;
+    width: calc(100% - 14px);
+}
+
+label {
+    padding-bottom: 5px;
+}
+
+label,
+button {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+button {
+    border: none;
+    background-color: aquamarine;
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 0px 20px;
+}
+p:last-of-type {
+  text-align: center;
+  padding-top: 10px;
+}
+
+button:last-of-type {
+  background-color: greenyellow;
+}
