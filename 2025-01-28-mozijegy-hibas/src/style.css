@@ -1,0 +1,45 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+header, footer{
+  background-color: #FDCD00;
+}
+.center{
+  text-align: center;
+}
+footer{
+  padding: 10px 0px;
+  margin-top: 30px;
+  color: #000;
+  font-weight: 700;
+}
+main{
+  width: 80%;
+  margin: 0px auto;
+}
+.link{
+  text-decoration: none;
+  color: #FDCD00;
+}
+h1{
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.df{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+}
