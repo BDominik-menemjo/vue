@@ -1,11 +1,12 @@
 <script setup>
 import { movieDatas } from "../data/movies.js"
 import { screenings } from "../state/state.js"
-function getImageUrl(name) {
-    return new URL("../" + name, import.meta.url).href
-}
 
 const movieState = screenings();
+
+function getImageUrl(name) {
+    return new URL("../" + name, import.meta.url).href;
+}
 
 const setFilmId = (id) =>{
     movieState.setFilmId(id);
@@ -14,15 +15,15 @@ const setFilmId = (id) =>{
 
 <template>
     <section>
-        <h1 class="center">Films</h1>
+        <h1>Films</h1>
         <div class="films df">
             <div class="film center" v-for="movie in movieDatas">
-                <p><img :src="getImageUrl(movie.image)" :alt="movie.title"></p>
+                <p><img :src="getImageUrl(movie.image)"></p>
                 <h3>{{ movie.title }}</h3>
-                <p><router-link class="link" to="/film" @click="setFilmId(movie.id)">Tickets &raquo</router-link></p>
-
+                <p><router-link class="link" to="/film" @click="setFilmId(movie.id)">Tickets &raquo;</router-link></p>
             </div>
         </div>
+        
     </section>
 </template>
 

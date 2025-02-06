@@ -21,7 +21,7 @@ header, footer{
   text-align: center;
 }
 footer{
-  padding: 20px 0px;
+  padding: 10px 0px;
   margin-top: 30px;
   color: #000;
   font-weight: 700;
@@ -32,14 +32,13 @@ main{
 }
 .link{
   text-decoration: none;
-  color:#FDCD00;
+  color: #FDCD00;
 }
 h1{
   font-size: 25px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .df{
   flex-wrap: wrap;
   display: flex;
