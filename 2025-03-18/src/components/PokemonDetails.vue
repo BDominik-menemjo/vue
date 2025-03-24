@@ -2,6 +2,7 @@
     import axios from 'axios';
     import { defineProps, ref, watch } from 'vue';
     import { kedvencPokemonok } from '../state/state.js';
+    import PokemonCards from './PokemonCards.vue';
 
     const pokemonState = kedvencPokemonok();
 
@@ -46,25 +47,20 @@
     });
 
     const add=(p)=>{
-        pokemonState.addPokemon(p);
-        alert("A(z) "+p.name+" pokémont sikeresen hozááadtuk a kedvencekhez!");
+        if(!pokemonState.isKedvenc(p)){
+            pokemonState.addPokemon(p);
+            alert("A(z) "+p.name+" pokémont sikeresen hozááadtuk a kedvencekhez!");
+        }else{
+            alert("A(z) "+p.name+" pokémon már a kedvencekhez van adva!");
+        }  
     };
 </script>
 
 <template>
     <section>
         <p v-if="pokemonName.length>0" class="text-center">Találatok a <strong>{{pokemonName}}</strong> kulcsszóra: </p>
-        <div class="d-flex flex-wrap text-center justify-content-start">
-            <div class="card mb-3 mx-auto" style="width: 18rem;" v-for="pokemon in pokemons">
-                <div class="card-body">
-                    <p><img :src="pokemon.url" :alt="pokemon.name" class="w-100"></p>
-                    <h5 class="card-title">{{ pokemon.name }}</h5>
-                    <p><i class="bi bi-heart-fill" @click="add(pokemon)"></i></p>
-                </div>
-            </div>
-        </div>
+        <PokemonCards :pokemonList="pokemons" @add="add" :isFavorite="false"/>
     </section>
-    
 </template>
 
 <style scoped>
