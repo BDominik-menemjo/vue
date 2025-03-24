@@ -1,15 +1,10 @@
 <script setup>
-import Navigation from './components/Navigation.vue';
-import SearchBar from './components/SearchBar.vue';
-import PokemonDetails from './components/PokemonDetails.vue';
+import Navigation from "./components/Navigation.vue";
 </script>
 
 <template>
   <Navigation />
-  <SearchBar />
-  <PokemonDetails />
+  <router-view />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

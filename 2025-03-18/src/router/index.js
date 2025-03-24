@@ -1,18 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Kezdolap from "../components/Kezdolap.vue";
-import Kedvencek from "../components/Kedvencek.vue";
-const routes=[
+import kezdolap from "../components/kezdolap.vue";
+import kedvencek from "../components/kedvencek.vue";
+
+const routes = [
     {
-        path:'/',
-        component: Kezdolap
+        path: '/',
+        component: kezdolap
     },
     {
-        path:'/kedvencek',
-        component: Kedvencek
+        path: '/kedvencek',
+        component: kedvencek
     }
 ];
 
-const router=createRouter({
+const router = createRouter({
     history: createWebHistory(), routes
 })
 
