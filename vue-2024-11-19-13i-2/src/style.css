@@ -1,0 +1,44 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+body{
+  padding: 30px;
+  background-image: url(assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+h2{
+  padding: 20px 0px;
+  font-size: 25px;
+  font-variant: small-caps;
+}
+table {
+  background-color: #fff;
+  color: #000;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+thead {
+  background-color: #ccc;
+}
+
+td,
+th {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+main, nav, header, footer{
+  width: 80%;
+  margin: 0px auto;
+}
+footer{
+  border-top: 1px solid #ccc;
+  margin-top: 40px;
+  padding:40px;
+}
